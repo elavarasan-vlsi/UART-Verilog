@@ -1,6 +1,6 @@
 # UART Tx/Rx in Verilog (Robust Implementation)
 
-📌 Overview
+## 📌 Overview
 
 This project implements a UART (Universal Asynchronous Receiver/Transmitter) in Verilog, including both Transmitter (Tx) and **Receiver (Rx)** modules.
 
@@ -67,13 +67,21 @@ A **self-checking testbench** is implemented using tasks.
 * ✔ Random data testing (automated check)
 * ✔ Start-bit noise injection
 * ✔ Framing error (invalid stop bit)
-* ✔ ±5% baud rate mismatch
+* ✔ ± ~5% baud rate mismatch
 * ✔ Long stream stress test
 * ✔ Reset during operation
 
 ### Result: All test cases passed successfully
 
-🔧 Parameters
+---
+
+## 📊 Waveform
+
+![UART Waveform](Waveforms/testbench_1cb.png)
+
+---
+
+## 🔧 Parameters
 
 * Baud rate configurable via counter values
 * Default tested at: **9600 bps**
