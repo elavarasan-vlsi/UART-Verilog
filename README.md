@@ -77,7 +77,17 @@ A **self-checking testbench** is implemented using tasks.
 
 ## 📊 Waveform
 
+### Continuous Data Transmission & Self-Checking Verification
+
 ![UART Waveform](Waveforms/testbench_1cb.png)
+
+# Description:
+
+* Design operates with a 50 MHz system clock
+* Multiple bytes transmitted continuously without gaps
+* Receiver correctly reconstructs all data
+* Self-checking testbench confirms correctness (PASS logs)
+* Demonstrates stable operation under continuous streaming
 
 ---
 
