@@ -6,7 +6,7 @@ module UART_Rx(
     output reg [7:0] Data_Out,
     output reg Rx_Busy,
     output Rx_Valid
-);
+ );
     parameter IDLE=2'h0, START=2'h1, DATA=2'h2, STOP=2'h3;
 
     reg [1:0] Rx_State; 
@@ -18,8 +18,6 @@ module UART_Rx(
     reg [1:0] sample_bit;
     reg [1:0] rx_sync;
     reg valid_start;
-
-    reg test = 1'b0;
 
     initial begin
         Rx_State <= IDLE;
