@@ -61,15 +61,15 @@ A **self-checking testbench** is implemented using tasks.
 
 ### Test Cases Covered:
 
-* ✔ Single byte transmission
-* ✔ Continuous data stream
-* ✔ Back-to-back frames (no idle gap)
-* ✔ Random data testing (automated check)
-* ✔ Start-bit noise injection
-* ✔ Framing error (invalid stop bit)
-* ✔ ± ~5% baud rate mismatch
-* ✔ Long stream stress test
-* ✔ Reset during operation
+* Single byte transmission
+* Continuous data stream
+* Back-to-back frames (no idle gap)
+* Random data testing (automated check)
+* Start-bit noise injection
+* Framing error (invalid stop bit)
+* ± ~5% baud rate mismatch
+* Long stream stress test
+* Reset during operation
 
 ### Result: All test cases passed successfully
 
