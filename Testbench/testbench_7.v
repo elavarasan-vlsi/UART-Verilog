@@ -44,7 +44,7 @@ module test_bench ();
     UART_Tx one(clk, reset, !empty_Tx, Tx_baud_rate, Data_Out_Tx, Tx, Tx_busy, done, read_en_Tx);
     UART_Rx two(clk, reset, Tx, Rx_baud_rate, Data_In_Rx, Rx_busy, write_en_Rx); 
 
-    FIFO_Sync Tx_FIFO(clk, reset, write_en_Tx, read_en_Tx, Data_In_Tx, Data_Out_Tx, full_Tx, empty_Tx);
-    FIFO_Sync Rx_FIFO(clk, reset, write_en_Rx, read_en_Rx, Data_In_Rx, Data_Out_Rx, full_Rx, empty_Rx);
+    FIFO_sync Tx_FIFO(clk, reset, write_en_Tx, read_en_Tx, Data_In_Tx, Data_Out_Tx, full_Tx, empty_Tx);
+    FIFO_sync Rx_FIFO(clk, reset, write_en_Rx, read_en_Rx, Data_In_Rx, Data_Out_Rx, full_Rx, empty_Rx);
 
 endmodule
