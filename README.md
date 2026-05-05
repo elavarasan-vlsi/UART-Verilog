@@ -1,6 +1,6 @@
 # UART Tx/Rx in Verilog (Robust Implementation)
 
-## 📌 Overview
+##  Overview
 
 This project implements a UART (Universal Asynchronous Receiver/Transmitter) in Verilog, including both Transmitter (Tx) and **Receiver (Rx)** modules.
 
@@ -8,7 +8,7 @@ The design focuses not only on functionality but also on **robustness and real-w
 
 ---
 
-## ⚙️ Features
+##  Features
 
 ### Receiver (Rx)
 
@@ -27,7 +27,7 @@ The design focuses not only on functionality but also on **robustness and real-w
 
 ---
 
-## 🧠 Design Approach
+##  Design Approach
 
 ### Oversampling
 The receiver samples each bit at **16× the baud rate**, allowing:
@@ -55,7 +55,7 @@ The start bit is validated using sampling to avoid false detection due to noise.
 
 ---
 
-## 🧪 Verification
+##  Verification
 
 A **self-checking testbench** is implemented using tasks.
 
@@ -75,11 +75,37 @@ A **self-checking testbench** is implemented using tasks.
 
 ---
 
-## 📊 Waveform
+## FIFO Integration
 
-### Continuous Data Transmission & Self-Checking Verification
+This design uses synchronous FIFOs to buffer data between the system and UART modules, enabling reliable continuous data transfer.
 
-![UART Waveform](Waveforms/testbench_1cb.png)
+### Key Points
+
+* **TX FIFO** stores input data and feeds the UART transmitter when it is idle
+* **RX FIFO** collects received data from UART and makes it available to the system
+* Prevents data loss during continuous streaming
+* Handles flow control using **full** and **empty** flags
+
+### Design Details
+
+* Depth: 8 entries
+* Data width: 8-bit
+* Circular buffer implementation using read/write pointers
+* Supports simultaneous read and write operations
+
+### Behavior
+
+* Write occurs when write_en and FIFO is not full
+* Read occurs when read_en and FIFO is not empty
+* Data order is preserved (FIFO: First-In First-Out)
+
+---
+
+##  Waveform
+
+### Continuous Data Transmission & FIFO Verification (@ 115200 bps)
+
+![UART Waveform](Waveforms/UART_with_FIFO.png)
 
 # Description:
 
@@ -91,29 +117,28 @@ A **self-checking testbench** is implemented using tasks.
 
 ---
 
-## 🔧 Parameters
+##  Parameters
 
 * Baud rate configurable via counter values
 * Default tested at: **9600 bps**
 
 ---
 
-## 📌 Future Improvements
+##  Future Improvements
 
-* FIFO buffer integration
 * Parity bit support
 * Configurable data length
 * AXI/APB interface integration
 
 ---
 
-## 🧑‍💻 Author
+##  Author
 
 Elavarasan
 
 ---
 
-## 📎 Notes
+##  Notes
 
 This project was implemented from scratch without copying reference designs, focusing on understanding and robustness.
 
