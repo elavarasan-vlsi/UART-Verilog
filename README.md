@@ -1,4 +1,4 @@
-# UART Tx/Rx in Verilog (Robust Implementation)
+# UART Tx/Rx in Verilog
 
 ##  Overview
 
@@ -98,6 +98,14 @@ This design uses synchronous FIFOs to buffer data between the system and UART mo
 * Write occurs when write_en and FIFO is not full
 * Read occurs when read_en and FIFO is not empty
 * Data order is preserved (FIFO: First-In First-Out)
+
+---
+
+## UART Tx/Rx state machine (FSM)
+
+#### UART Tx/Rx FSM flow derived from my own understanding of the protocol behavior instead of directly following a traditional reference design.
+
+<img width="1000" height="800" alt="UART_FSM" src="https://github.com/user-attachments/assets/f569ee2c-68db-470b-a365-ad4aff600914" />
 
 ---
 
